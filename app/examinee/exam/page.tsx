@@ -32,7 +32,7 @@ export default function Home() {
     {
       title: "共通問題 数学",
       years: [
-        { label: "令和六年", link: "/zpdf/math_r6.pdf" },
+        { label: "令和六年", link: "/pdf/math_r6.pdf" },
         { label: "令和五年", link: "/pdf/math_r5.pdf" },
         { label: "令和四年", link: "/pdf/math_r4.pdf" },
         { label: "令和三年", link: "/pdf/math_r3.pdf" },
