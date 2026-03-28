@@ -6,7 +6,7 @@ export default function Home() {
   return (
   <>
   <section className="bg-blue-900 text-white py-16">
-    <div className="sm:px-2 md:px-4">
+    <div className="sm:px-4 md:px-40">
       <h1 className="text-4xl font-bold mb-4">出願方法について</h1>
     </div>
   </section>

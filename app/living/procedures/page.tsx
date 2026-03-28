@@ -28,7 +28,7 @@ export default function ProceduresPage() {
 
       {/* ヒーローセクション */}
       <section className="bg-slate-900 text-white py-12 border-b border-slate-800">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="sm:px-4 md:px-6">
           <div className="flex items-center gap-3 mb-2 text-blue-400">
             <UserCog className="w-6 h-6" />
             <span className="font-bold tracking-wider text-sm">事務手続きガイド</span>
@@ -41,7 +41,7 @@ export default function ProceduresPage() {
         </div>
       </section>
 
-      <main className="max-w-5xl mx-auto px-6 py-12">
+      <main className="sm:px-4 md:px-6 py-12">
         {/* 重要なお知らせ（アラート） */}
         <Alert variant="destructive" className="mb-10 bg-red-50 border-red-200 text-red-900">
           <AlertCircle className="h-4 w-4 text-red-600" />

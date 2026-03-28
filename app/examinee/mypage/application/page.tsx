@@ -276,7 +276,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="px-40 py-10 space-y-4">
+      <div className="sm:px-4 md:px-40 py-10 space-y-4">
         <h1 className="text-2xl font-bold">出願情報の入力</h1>
         <p className="text-sm text-gray-600">
           出願情報を入力してください。当出願ページで知り得た個人情報は受験票の発行のみに使用します。情報は厳重に管理され、第三者の手に渡ることはありません。

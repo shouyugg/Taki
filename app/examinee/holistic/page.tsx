@@ -7,13 +7,13 @@ export default function Home() {
   return (
     <>
       <section className="bg-blue-900 text-white py-16">
-        <div className="max-w-5xl mx-auto px-4">
+        <div className="sm:px-2 md:px-4">
           <CircleDollarSign/>
           <h1 className="text-4xl font-bold mb-4">総合型選抜について</h1>
         </div>
       </section>
       <br/><br/>
-      <div className="px-40">
+      <div className="sm:px-4 md:px-40">
     <Table className="[&_td]:border-r [&_th]:border-r [&_td:last-child]:border-r-0 [&_th:last-child]:border-r-0">
       <TableHeader>
         <TableRow>

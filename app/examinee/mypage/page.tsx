@@ -18,7 +18,7 @@ export default function Home() {
         </div>
       </section>
       <br/><br/>
-      <div className="px-80">
+      <div className="sm:px-4 md:px-40">
           <Accordion
       type="single"
       collapsible

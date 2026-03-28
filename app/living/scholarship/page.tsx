@@ -16,7 +16,7 @@ export default function ScholarshipPage() {
 
       {/* ヒーローセクション */}
       <section className="bg-blue-900 text-white py-16">
-        <div className="max-w-5xl mx-auto px-4">
+        <div className="sm:px-2 md:px-4">
           <Badge className="mb-4 bg-blue-500 hover:bg-blue-500">学費サポート</Badge>
           <h1 className="text-4xl font-bold mb-4">奨学金制度・経済支援</h1>
           <p className="text-blue-100 text-lg max-w-2xl">
@@ -25,7 +25,7 @@ export default function ScholarshipPage() {
         </div>
       </section>
 
-      <main className="max-w-5xl mx-auto px-4 py-12">
+      <main className="px-4 py-12">
         {/* クイックアクセスカード */}
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           <Card className="border-l-4 border-l-blue-600">
