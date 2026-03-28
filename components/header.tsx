@@ -1,6 +1,9 @@
+"use client"
+
 import * as React from "react"
 import Link from "next/link"
 import Image from "next/image"
+import {Menu} from "lucide-react"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -9,8 +12,15 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet" // shadcn/uiのSheetを使用
 import { cn } from "@/lib/utils"
-
+import { Button } from "@/components/ui/button"
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur-sm shadow-sm">
@@ -35,7 +45,7 @@ export default function Header() {
           </div>
         </Link>
 
-        {/* ナビゲーション */}
+        {/* デスクトップ版ナビゲーション */}
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList className="gap-1">
             <NavGroup title="大学案内" mainTitle="大学概要" description="滝筑大学の理念や歴史、キャンパスの様子をご紹介します。" pageLink={"/welcome"}>
@@ -63,15 +73,68 @@ export default function Header() {
             </NavGroup>
           </NavigationMenuList>
         </NavigationMenu>
-
-        {/* クイックリンク（オプション） */}
-        {/*<div className="hidden xl:flex items-center gap-4">
-           <button className="text-xs font-bold px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-800 transition">
-             資料請求
-           </button>
-        </div>*/}
+        {/*モバイル版*/}
+        <div className="lg:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="text-blue-900">
+                <Menu className="h-6 w-6"/>
+                <span className="sr-only">メニューを開く</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
+              <SheetHeader className="text-left border-b pb-4 mb-4">
+                <SheetTitle className="text-blue-900">メニュー</SheetTitle>
+              </SheetHeader>
+              <nav className="flex flex-col gap-6">
+                {/* 各メニューグループをシンプルに羅列 */}
+                <MobileNavSection title="大学案内" items={[
+                  { href: "/welcome/aboutuniv", label: "大学概要" },
+                  { href: "/welcome/canvas", label: "キャンパス案内" },
+                  { href: "/welcome/news", label: "広報・ニュース" },
+                ]} />
+                <MobileNavSection title="学部・大学院" items={[
+                  { href: "/academics/sciences", label: "理学部" },
+                  { href: "/academics/engineering", label: "工学部" },
+                  { href: "/academics/medical", label: "医学部" },
+                ]} />
+                <MobileNavSection title="受験生の方へ" items={[
+                  { href: "/examinee/exam", label: "過去問" },
+                  { href: "/examinee/holistic", label: "総合型選抜" },
+                  { href: "/examinee/mypage", label: "出願者マイページ" },
+                ]} />
+                <MobileNavSection title="教育・学生生活" items={[
+                  { href: "/living/ug", label: "授業・履修" },
+                  { href: "/living/scholarship", label: "奨学金制度" },
+                  { href: "/living/procedures", label: "学籍・諸手続き" },
+                ]} />
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
+  )
+}
+
+function MobileNavSection({ title, items }: { title: string, items: { href: string, label: string }[] }) {
+  return (
+    <div className="flex flex-col gap-3">
+      <h3 className="font-bold text-blue-900 border-l-4 border-blue-900 pl-2 leading-none uppercase tracking-wider text-sm">
+        {title}
+      </h3>
+      <div className="flex flex-col gap-1 pl-3">
+        {items.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className="text-slate-600 hover:text-blue-900 py-2 text-sm transition-colors"
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
+    </div>
   )
 }
 
